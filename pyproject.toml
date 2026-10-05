@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gpt-agent"
+version = "0.1.0"
+description = "GPT-6.1 Sol runtime for the MAGMA HTTP protocol"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "magma_core[interface]>=2.0.0b3,<3.0.0",
+    "fastapi>=0.110",
+    "uvicorn>=0.27",
+    "httpx>=0.27,<1",
+    "pydantic>=2.4,<3",
+]
+
+[project.scripts]
+gpt-agent = "gpt_agent.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
